@@ -5,17 +5,13 @@
 class Vehicle {
     id: UUID
     plateNumber: string
-}
 
-class Location {
     latitude: number
     longitude: number
 }
 
 class User {
     id: UUID
-    login: string
-    passwordHash: string
 }
 
 class Fleet {
@@ -24,6 +20,5 @@ class Fleet {
 
 Fleet "0..1" -- "1" User
 Vehicle "0..*" -- "0..*" Fleet
-Vehicle "1" -- "0..1" Location
 
 @enduml
