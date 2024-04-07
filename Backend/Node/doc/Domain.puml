@@ -1,0 +1,29 @@
+@startuml
+
+' Domain model for the Fulll Vehicle fleet parking management system
+
+class Vehicle {
+    id: UUID
+    plateNumber: string
+}
+
+class Location {
+    latitude: number
+    longitude: number
+}
+
+class User {
+    id: UUID
+    login: string
+    passwordHash: string
+}
+
+class Fleet {
+    id: UUID
+}
+
+Fleet "0..1" -- "1" User
+Vehicle "0..*" -- "0..*" Fleet
+Vehicle "1" -- "0..1" Location
+
+@enduml
