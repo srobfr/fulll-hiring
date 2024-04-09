@@ -2,7 +2,7 @@ import { Given, Then, When } from "@cucumber/cucumber";
 import { getOrCreateFleet } from "./helpers/FleetHelper";
 import { getUserA, getUserB } from "./helpers/UserHelper";
 import { context } from "./helpers/common";
-import { fleetCommand, fleetRepository } from "../../src/Infra/ioc";
+import { fleetCommands, fleetRepository } from "../../src/Infra/ioc";
 import assert from "assert";
 
 /**
@@ -22,7 +22,7 @@ Given('the fleet of another user', async function () {
 });
 
 async function registerVehicleIntoFleet() {
-    await fleetCommand.registerVehicle(context.myFleetId, context.aVehicleId);
+    await fleetCommands.registerVehicle(context.myFleetId, context.aVehicleId);
 }
 
 Given('I have registered this vehicle into my fleet', registerVehicleIntoFleet);
@@ -38,7 +38,7 @@ When('I try to register this vehicle into my fleet', async function () {
 });
 
 Given("this vehicle has been registered into the other user's fleet", async function () {
-    await fleetCommand.registerVehicle(context.userBFleetId, context.aVehicleId);
+    await fleetCommands.registerVehicle(context.userBFleetId, context.aVehicleId);
 });
 
 Then('I should be informed this this vehicle has already been registered into my fleet', function () {

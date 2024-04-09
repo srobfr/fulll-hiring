@@ -14,5 +14,5 @@ export const userRepository = new UserRepository(inMemoryDb);
 export const fleetRepository = new FleetRepository(inMemoryDb);
 export const vehicleRepository = new VehicleRepository(inMemoryDb);
 
-export const fleetCommand = new FleetCommands(fleetRepository);
+export const fleetCommands = new FleetCommands(fleetRepository);
 export const vehicleCommands = new VehicleCommands(vehicleRepository);
