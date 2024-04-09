@@ -18,3 +18,7 @@ export async function getOrCreateUser(id: UUID): Promise<User> {
 export async function getUserA() {
     return getOrCreateUser(userAId);
 }
+
+export async function getUserB() {
+    return getOrCreateUser(userBId);
+}

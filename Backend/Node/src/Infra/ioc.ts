@@ -5,6 +5,10 @@ import FleetRepository from "./Repositories/InMemory/FleetRepository";
 import UserRepository from "./Repositories/InMemory/UserRepository";
 import VehicleRepository from "./Repositories/InMemory/VehicleRepository";
 
+/**
+ * A really simple form of IoC container
+ */
+
 export const inMemoryDb = new InMemoryDb();
 export const userRepository = new UserRepository(inMemoryDb);
 export const fleetRepository = new FleetRepository(inMemoryDb);
