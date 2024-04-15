@@ -7,9 +7,8 @@ export default class VehicleCommands {
     /**
      * Records the parking location of the given vehicle
      */
-    async parkVehicle(vehicleId: Vehicle["id"], location: Location) {
-        const vehicle = await this.vehicleRepository.findById(vehicleId);
-
+    async parkVehicle(vehiclePlateNumber: Vehicle["plateNumber"], location: Location) {
+        const vehicle = await this.vehicleRepository.findByPlateNumber(vehiclePlateNumber);
         if (!vehicle) {
             throw new Error("Vehicle not found");
         }
@@ -18,6 +17,6 @@ export default class VehicleCommands {
             throw new Error("This vehicle is already parked at this location");
         }
 
-        await this.vehicleRepository.updateLocation(vehicleId, location);
+        await this.vehicleRepository.updateLocation(vehicle.id, location);
     }
 }

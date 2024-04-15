@@ -6,8 +6,11 @@ export default interface FleetRepository {
     create(ownerId: User["id"]): Promise<Fleet>;
 
     findById(id: Fleet["id"]): Promise<Fleet | undefined>;
+    
+    delete(id: Fleet["id"]): Promise<void>;
 
     findByOwnerId(ownerId: User["id"]): Promise<Fleet | undefined>;
 
     addVehicleToFleet(fleetId: Fleet["id"], vehicleId: Vehicle["id"]): Promise<void>;
+    
 }

@@ -10,6 +10,10 @@ export default class FleetRepository implements FleetRepositoryInterface {
 
     constructor(private readonly inMemoryDb: InMemoryDb) { }
 
+    async delete(id: Fleet["id"]): Promise<void> {
+        this.inMemoryDb.fleets.delete(id);
+    }
+
     async create(ownerId: User["id"]): Promise<Fleet> {
         const fleet = new Fleet(randomUUID(), ownerId, new Set());
         this.inMemoryDb.fleets.set(fleet.id, fleet);

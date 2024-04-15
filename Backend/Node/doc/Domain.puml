@@ -8,6 +8,7 @@ class Vehicle {
 
     latitude: number
     longitude: number
+    altitude: number
 }
 
 class User {

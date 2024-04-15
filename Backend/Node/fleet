@@ -1,0 +1,3 @@
+#!/bin/sh
+appDir=$(readlink -f $(dirname $0))
+"$appDir"/node_modules/.bin/ts-node "$appDir"/src/Infra/Cli/fleet.ts "$@"

@@ -8,8 +8,8 @@ export default class UserRepository implements UserRepositoryInterface {
 
     constructor(private readonly inMemoryDb: InMemoryDb) { }
 
-    async create(): Promise<User> {
-        const user = new User(randomUUID());
+    async create(id: User["id"] = randomUUID()): Promise<User> {
+        const user = new User(id);
         this.inMemoryDb.users.set(user.id, user);
         return user;
     }
